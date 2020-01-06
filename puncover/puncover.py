@@ -19,7 +19,7 @@ def create_builder(gcc_base_filename, elf_file=None, su_dir=None, src_root=None)
     else:
         raise Exception("Unable to configure builder for collector")
 
-app = Flask(__name__, host='0.0.0.0')
+app = Flask(__name__)
 
 
 def find_arm_tools_location():
@@ -61,7 +61,7 @@ def main():
 
     if args.debug:
         app.debug = True
-    app.run(port=args.port)
+    app.run(port=args.port, host='0.0.0.0')
 
 
 if __name__ == '__main__':
